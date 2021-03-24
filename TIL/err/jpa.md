@@ -3,3 +3,15 @@
 org.hibernate.id.IdentifierGenerationException: ids for this class must be manually assigned before calling save(): com.innogrid.openstackit.data.entity.authority.AuthorityEntity
 
 entity
+
+
+
+---
+
+커스텀 JPA SQL을 할떄는 @Query 를 쓴다. 그런데 ; 있으면 동작안함 !!!!!!!
+
+열받는다....이것때문에......; 
+```javascript
+  @Query(value="select * from authority a where a.id=:id and a.domain_name=:domainName",nativeQuery = true)
+    AuthorityEntity findEmailByIdAndDomainName(@Param("id") String id, @Param("domainName") String domainName);
+```
